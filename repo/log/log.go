@@ -49,6 +49,7 @@ func (repo *LogRepo) BatchInsert(batch []*_types.Log) error {
 	for _, v := range batch {
 		day := time.Unix(0, v.Timestamp).UTC().Format("2006-01-02")
 		values := []any{day, v.Timestamp, v.DashId, v.Hostname, v.Logname, v.Level, v.Message, v.Pid, v.Version}
+		Logger.Info("DEBUG", v.Timestamp, v.DashId, v.Hostname, v.Logname, v.Level, v.Pid, v.Version, len(v.Message))
 		_, err = stmt.Exec(values...)
 		if err != nil {
 			return err
