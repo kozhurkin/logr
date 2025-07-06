@@ -37,7 +37,7 @@ spec:
             - name: RECAPTCHA_SECRET
               value: "${RECAPTCHA_SECRET}"
             - name: DEMO_DASH_ENABLED
-              value: "true"
+              value: "false"
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: mysql
